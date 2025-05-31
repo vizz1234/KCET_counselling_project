@@ -63,73 +63,7 @@ branches = ['AD Artificial\nIntel, Data Sc', 'EC Electronics', 'CE Civil',
        'RI Robotics and AI',
        'YB B.TECH IN\nCS.ENG(DAT ANA)',]
 
-# def find_colleges(category, rank, branch, rank_low=None, rank_high=None):
-#     if rank_low is None:
-#         rank_low = max(0, rank - 1000)
-#     if rank_high is None:
-#         rank_high = min(rank + 1000, 200000)
-    
-#     df_cat1 = category_tables.get(category)
-#     df_cat2 = category_tables_2.get(category)
 
-#     if df_cat1 is None:
-#         st.warning(f"Category '{category}' not found in Round 1.")
-#         return pd.DataFrame()
-#     if df_cat2 is None:
-#         st.warning(f"Category '{category}' not found in Round 2.")
-#         return pd.DataFrame()
-
-#     if branch not in df_cat1.index:
-#         matches = [b for b in df_cat1.index if branch.lower() in b.lower()]
-#         if not matches:
-#             st.warning(f"Branch '{branch}' not found in category '{category}'.")
-#             return pd.DataFrame()
-#         branch = matches[0]
-
-#     # Convert to numeric Series
-#     round1_series = pd.to_numeric(df_cat1.loc[branch], errors='coerce')
-#     round2_series = pd.to_numeric(df_cat2.loc[branch], errors='coerce')
-
-#     # Masks for each round
-#     mask1 = (round1_series >= rank_low) & (round1_series <= rank_high)
-#     mask2 = (round2_series >= rank_low) & (round2_series <= rank_high)
-
-#     # Union of indices (college names) where either mask is True
-#     valid_colleges = round1_series[mask1].index.union(round2_series[mask2].index)
-
-#     # Final result: both values from unfiltered round if available
-#     result = pd.DataFrame({
-#         "Round 1": round1_series.loc[valid_colleges],
-#         "Round 2": round2_series.loc[valid_colleges]
-#     })
-
-#     return result.sort_values("Round 1", na_position="last")
-
-
-
-# # Streamlit UI
-# st.title("College Finder Based on CET Rank")
-
-# category = st.selectbox("Select Category", sorted(category_tables.keys()))
-# rank = st.number_input("Enter Rank", min_value=1, max_value=200000, value=5000)
-# default_branch = "CS Computers"
-# default_index = list(branches).index(default_branch) if default_branch in branches else 0
-
-# branch = st.selectbox("Select Branch", branches, index=default_index)
-
-# custom_range = st.checkbox("Customize Rank Range", value=False)
-# rank_low = rank_high = None
-# if custom_range:
-#     rank_low = st.number_input("Rank Low", min_value=0, max_value=200000, value=max(0, rank - 1000))
-#     rank_high = st.number_input("Rank High", min_value=0, max_value=200000, value=min(rank + 1000, 200000))
-
-# if st.button("Find Colleges"):
-#     result = find_colleges(category, rank, branch, rank_low, rank_high)
-#     if result.empty:
-#         st.write("No colleges found for the given criteria.")
-#     else:
-#         st.write("### Matching Colleges (Round 1 and Round 2)")
-#         st.dataframe(result)
 def get_valid_colleges(category, selected_branches, rank, rank_low=None, rank_high=None):
     if rank_low is None:
         rank_low = max(0, rank - 1000)

@@ -157,5 +157,11 @@ if st.button("Find Colleges"):
                     combined_df = combined_df.join(branch_df, how='outer')
 
             st.write("### Matching Colleges Across Branches")
-            combined_df.sort_values(by=selected_branches[0], inplace=True)
+            # Check if DataFrame has any columns
+            if not combined_df.empty:
+                default_sort_col = combined_df.columns[0]  # Use the first column as default
+                sort_col = selected_branches[0] if selected_branches and selected_branches[0] in combined_df.columns else default_sort_col
+
+                combined_df.sort_values(by=sort_col, inplace=True)
+
             st.dataframe(combined_df)

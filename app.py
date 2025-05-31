@@ -5,7 +5,7 @@ import numpy as np
 
 # --- Login section ---
 def login():
-    st.title("🔒 Secure College Finder")
+    st.title("Manyu's Classes College Finder")
     password = st.text_input("Enter password:", type="password")
 
     if password != st.secrets["app_password"]:
@@ -16,7 +16,7 @@ def login():
 login()
 
 # --- Your existing app logic below ---
-st.title("🎓 College Finder Based on CET Rank")
+st.title("Manyu's Classes College Finder Based on CET Rank")
 # Load the JSON file
 with open("data/category_tables.json", "r") as f:
     category_tables_dict = json.load(f)
@@ -157,4 +157,5 @@ if st.button("Find Colleges"):
                     combined_df = combined_df.join(branch_df, how='outer')
 
             st.write("### Matching Colleges Across Branches")
+            combined_df.sort_values(by=selected_branches[0], inplace=True)
             st.dataframe(combined_df)

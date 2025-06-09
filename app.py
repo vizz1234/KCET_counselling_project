@@ -35,33 +35,11 @@ category_tables_2 = {
     for category, df_dict in category_tables_2_dict.items()
 }
 
-branches = ['AD Artificial\nIntel, Data Sc', 'EC Electronics', 'CE Civil',
-       'AI Artificial\nIntelligence', 'AM B Tech in AM',
-       'BG B Tech in AD', 'BH B Tech in AI', 'BJ B Tech in EE',
-       'BL B Tech in AS',
-       'BP B Tech in CE',
-       'BQ B Tech in CG',
-       'BU B Tech in CI',
-       'BW B Tech in CS',
-       'BZ B Tech in DS', 'CA CS (AI, Machine\nLearning)',
-       'CB Comp. Sc. and\nBus Sys.', 'CC Computer and\nComm. Engg.',
-       'CD Computer Sc.\nand Design',
-       'CF CS(Artificial\nIntel.)', 'CG Computer\nScience and Tech',
-       'CM B Tech in EV', 'CN B Tech in IB', 'CO Computer\nEngineering',
-       'CQ B Tech in IO','CS Computers','DC Data Sciences', 'DD B Tech in MS',
-       'DH B Tech in RAI',
-       'DL B.TECH IN CS', 'DM B.TECH IN CS NW',
-       'EE Electrical', 'EI Elec. Inst.\nEngg',
-       'EL Electronics,\nInstr. Tech.',
-       'ER Electrical and\nComputer', 'ES Electronics and\nComputer',
-       'ET Elec.\nTelecommn. Engg.', 'EV EC Engg(VLSI\nDesign)',
-       'EZ ELECTRONICS AND\nCOMPUT',
-       'IE Info.Science',
-       'IZ INFORMATION\nSCIENCE', 'LA B Plan', 'LD B Tech in DS',
-       'LE B Tech in AIML', 'LF B Tech in CC', 'LG B Tech in CS',
-       'LH B Tech in IS',
-       'RI Robotics and AI',
-       'YB B.TECH IN\nCS.ENG(DAT ANA)',]
+branches = ['AI Artificial\nIntelligence',
+       'CF CS(Artificial\nIntel.)','CS Computers',
+       'DL B.TECH IN CS','EC Electronics',
+       'EE Electrical',
+       'IE Info.Science',]
 
 
 def get_valid_colleges(category, selected_branches, rank, rank_low=None, rank_high=None):
